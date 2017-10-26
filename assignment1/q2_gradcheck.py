@@ -29,9 +29,13 @@ def gradcheck_naive(f, x):
         # before calling f(x) each time. This will make it possible
         # to test cost functions with built in randomness later.
 
-        ### YOUR CODE HERE:
-        raise NotImplementedError
-        ### END YOUR CODE
+        x[ix] += h
+        new_plus_h, _ = f(x)
+        x[ix] -= 2 *h
+        new_minus_h, _ = f(x)
+
+        numgrad = (new_plus_h - new_minus_h) / (2 * h)
+        x[ix] += h
 
         # Compare gradients
         reldiff = abs(numgrad - grad[ix]) / max(1, abs(numgrad), abs(grad[ix]))
@@ -75,4 +79,4 @@ def your_sanity_checks():
 
 if __name__ == "__main__":
     sanity_check()
-    your_sanity_checks()
+    # your_sanity_checks()
