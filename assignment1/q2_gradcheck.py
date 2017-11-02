@@ -31,10 +31,10 @@ def gradcheck_naive(f, x):
 
         x[ix] += h
         new_plus_h, _ = f(x)
-        x[ix] -= 2 *h
+        x[ix] -= 2 * h
         new_minus_h, _ = f(x)
 
-        numgrad = (new_plus_h - new_minus_h) / (2 * h)
+        numgrad = np.sum((new_plus_h - new_minus_h) / (2 * h))
         x[ix] += h
 
         # Compare gradients
