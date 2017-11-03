@@ -1,5 +1,8 @@
 .idea/*
 *.txt
 assignment1/.idea/*
+assignment2/.idea/*
 .DS_Store
 *.pyc
+*.xml
+*.conll
